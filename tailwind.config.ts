@@ -23,6 +23,12 @@ const config = {
           1: '#1C1F2E',
           2: '#161925',
         },
+        blue:{
+          1:'#0E78F9'
+        },
+        sky:{
+          1:'#C9DDFF'
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -76,6 +82,9 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage:{
+        hero: "url('/images/hero-background.png')"
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
