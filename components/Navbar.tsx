@@ -15,8 +15,8 @@ const Navbar = () => {
                 <p className={"text-[26px] font-extrabold text-white max-sm:hidden"}>Zoomia</p>
             </Link>
             <div className={"flex-between gap-5"}>
-                <SignedIn>
-                    <UserButton/>
+                <SignedIn >
+                    <UserButton />
                 </SignedIn>
 
                 <MobileNav/>
