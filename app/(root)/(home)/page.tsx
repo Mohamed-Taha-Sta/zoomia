@@ -1,10 +1,23 @@
-import React from 'react';
+"use client";
+import React, {useEffect, useState} from 'react';
 import MeetingTypeList from "@/components/MeetingTypeList";
 
 const Page = () => {
-    const now = new Date();
-    const time = now.toLocaleTimeString('en-US',{hour: '2-digit', minute: '2-digit'}) ;
-    const date =(new Intl.DateTimeFormat('en-US', {dateStyle:'full'})).format();
+    const [shownTime, setShownTime] = useState(() => new Date().toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit'
+    }))
+    const [shownDate, setShownDate] = useState(() => (new Intl.DateTimeFormat('en-US', {dateStyle: 'full'})).format())
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setShownTime(new Date().toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'}))
+            setShownDate((new Intl.DateTimeFormat('en-US', {dateStyle: 'full'})).format());
+        }, 30000);
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
 
     return (
         <section className={"flex size-full flex-col gap-10 text-white"}>
@@ -15,9 +28,9 @@ const Page = () => {
                     </h2>
                     <div className={"flex flex-col gap-2"}>
                         <h1 className={"text-4xl font-extrabold lg:text-7xl"}>
-                            {time}
+                            {shownTime}
                         </h1>
-                        <p className={"text-lg font-medium text-sky-1 lg:text-2xl"}>{date}</p>
+                        <p className={"text-lg font-medium text-sky-1 lg:text-2xl"}>{shownDate}</p>
                     </div>
                 </div>
             </div>
