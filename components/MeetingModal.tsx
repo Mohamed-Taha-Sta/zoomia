@@ -1,3 +1,5 @@
+// MeetingModal.tsx
+
 import React, {ReactNode} from 'react';
 import Image from 'next/image'
 import {
@@ -10,7 +12,6 @@ import {
 } from "@/components/ui/dialog"
 import {cn} from "@/lib/utils";
 import {Button} from "@/components/ui/button";
-
 
 interface MeetingModalProps {
     isOpen: boolean,
@@ -30,10 +31,10 @@ const MeetingModal = ({isOpen,onClose,title,className,children,handleClick,image
         <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogTrigger>Open</DialogTrigger>
             <DialogContent
-                className={"flex w-full max-w-2xl flex-col gap-6 border-none bg-dark-1 px-6 py-9 text-white"}>
-                <div className={'flex flex-col gap-6'}>
+                className={"flex w-full max-w-2xl rounded-xl flex-col gap-6 border-none bg-dark-1 px-6 py-9 text-white"}>
+                <div className={'flex flex-col gap-10'}>
                     {image && (
-                        <div>
+                        <div className={'flex justify-center items-center'}>
                             <Image
                                 src={image}
                                 alt={"Image"}
@@ -50,9 +51,6 @@ const MeetingModal = ({isOpen,onClose,title,className,children,handleClick,image
                         )} &nbsp;
                         {buttonText || "Schedule Meeting"}
                     </Button>
-
-
-
                 </div>
             </DialogContent>
         </Dialog>
