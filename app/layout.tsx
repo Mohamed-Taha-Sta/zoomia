@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Zoomia",
     description: "Zoomia a video-conference/ Streaming-app",
     icons: {
-        icon: '/icons/logo.svg'
+        icon: '/icons/logo.png'
     }
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
         <ClerkProvider appearance={{
             layout:{
                 logoPlacement:"inside",
-                logoImageUrl:'/icons/logo.svg',
+                logoImageUrl:'/icons/logo.png',
                 socialButtonsVariant:'iconButton'
             },
             variables: {

@@ -10,7 +10,7 @@ const Navbar = () => {
         <nav className={"flex-between fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10"}>
             <Link href={"/"}
                   className={"flex items-center gap-1"}>
-                <Image src={"/icons/logo.svg"} alt={"Zoomia logo"}
+                <Image src={"/icons/logo.png"} alt={"Zoomia logo"}
                        height={32} width={32} className={"max-sm:size-10"}/>
                 <p className={"text-[26px] font-extrabold text-white max-sm:hidden"}>Zoomia</p>
             </Link>

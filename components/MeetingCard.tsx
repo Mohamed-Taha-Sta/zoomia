@@ -1,18 +1,72 @@
-import React from 'react';
-import Image from 'next/image'
+"use client";
 
-const MeetingCard = ({type}: {type: "ended" | "recordings" | "upcoming"}) => {
+import Image from "next/image";
+
+import {cn} from "@/lib/utils";
+import {Button} from "./ui/button";
+import {useToast} from "./ui/use-toast";
+
+interface MeetingCardProps {
+    title: string;
+    date: string;
+    icon: string;
+    isPreviousMeeting?: boolean;
+    buttonIcon1?: string;
+    buttonText?: string;
+    handleClick: () => void;
+    link: string;
+}
+
+const MeetingCard = ({
+                         icon,
+                         title,
+                         date,
+                         isPreviousMeeting,
+                         buttonIcon1,
+                         handleClick,
+                         link,
+                         buttonText,
+                     }: MeetingCardProps) => {
+    const {toast} = useToast();
+
     return (
-        <div className={"flex flex-col bg-dark-1 rounded-xl py-7 px-6 gap-3"}>
-            <Image
-                width={20}
-                height={20}
-                src={"/icons/upcoming.svg"}
-                alt={"upcomingIcon"}
-            />
-            <h1 className={"text-[18px] font-bold -pt-2"}>Meeting#255: Quality Assurance Team</h1>
-            <h2 className={"text-sm text-neutral-300 font-light -mt-2"}>Thursday, 8th March, 2024 - 10:00PM</h2>
-        </div>
+        <section className="flex min-h-[258px] w-full flex-col justify-between rounded-[14px] bg-dark-1 px-6 py-6 ">
+            <article className="flex flex-col gap-5">
+                <Image src={icon} alt="upcoming" width={28} height={28}/>
+                <div className="flex justify-between">
+                    <div className="flex flex-col gap-2">
+                        <h1 className="text-2xl font-bold">{title}</h1>
+                        <p className="text-base font-normal">{date}</p>
+                    </div>
+                </div>
+            </article>
+            <article className={cn("flex justify-center relative", {})}>
+                {!isPreviousMeeting && (
+                    <div className="flex gap-2">
+                        <Button onClick={handleClick} className="rounded bg-blue-1 hover:bg-blue-700 px-6">
+                            {buttonText}
+                        </Button>
+                        <Button
+                            onClick={() => {
+                                navigator.clipboard.writeText(link);
+                                toast({
+                                    title: "Link Copied",
+                                });
+                            }}
+                            className="border-gray-600 border rounded px-4 hover:bg-gray-800"
+                        >
+                            <Image
+                                src="/icons/copy.svg"
+                                alt="feature"
+                                width={20}
+                                height={20}
+                            />
+                            &nbsp; Copy Link
+                        </Button>
+                    </div>
+                )}
+            </article>
+        </section>
     );
 };
 
