@@ -42,7 +42,7 @@ const MeetingModal = ({isOpen,onClose,title,className,children,handleClick,image
                                 height={72}
                             />
                         </div>)}
-                    <h1 className={cn('text-3xl font-bold leading-3', className)}>{title}</h1>
+                    <h1 className={cn('text-3xl font-bold ', className)}>{title}</h1>
                     {children}
                     <Button className={"bg-white focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl hover:bg-gray-300 text-black "}
                             onClick={handleClick}>
