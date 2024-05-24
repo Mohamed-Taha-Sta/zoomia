@@ -43,7 +43,7 @@ const MeetingCard = ({
             <article className={cn("flex justify-center relative", {})}>
                 {!isPreviousMeeting && (
                     <div className="flex gap-2">
-                        <Button onClick={handleClick} className="rounded bg-blue-1 hover:bg-blue-700 px-6">
+                        <Button onClick={handleClick} className="text-black rounded bg-white hover:bg-gray-300 px-6">
                             {buttonText}
                         </Button>
                         <Button

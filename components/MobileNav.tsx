@@ -46,13 +46,14 @@ const MobileNav = () => {
                                         <SheetClose asChild key={link.route}>
                                             <Link href={link.route} key={link.label}
                                                   className={cn('flex gap-4 items-center p-4 justify-start rounded-xl', {
-                                                      'bg-blue-1': isActive,
+                                                      'bg-white text-black': isActive,
                                                   })}>
                                                 <Image
                                                     src={link.imgUrl}
                                                     alt={link.label}
                                                     width={24}
                                                     height={24}
+                                                    className={cn("", {"invert": isActive})}
                                                 />
                                                 <p className={"text-lg font-semibold "}>
                                                     {link.label}
